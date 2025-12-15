@@ -10,4 +10,9 @@ import lombok.NoArgsConstructor;
 public class ExceptionDetails {
     private String fieldName;
     private String fieldValue;
+
+    public ExceptionDetails(String fieldName, String message) {
+        this.fieldName = fieldName;
+        this.fieldValue = message;
+    }
 }
