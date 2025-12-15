@@ -9,10 +9,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ExceptionDetails {
     private String fieldName;
-    private String fieldValue;
 
-    public ExceptionDetails(String fieldName, String message) {
-        this.fieldName = fieldName;
-        this.fieldValue = message;
+    public String getFieldValue() {
+        return fieldValue;
     }
+
+    public void setFieldValue(String fieldValue) {
+        this.fieldValue = fieldValue;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    private String fieldValue;
 }
