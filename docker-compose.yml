@@ -1,0 +1,27 @@
+services:
+  account-db:
+    image: postgres:16
+    container_name: account-db
+    environment:
+      POSTGRES_USER: accountuser
+      POSTGRES_PASSWORD: accountpass
+      POSTGRES_DB: accountdb
+    ports:
+      - "5433:5432"
+    networks:
+      - banknet
+
+  account-service:
+    image: ghcr.io/your-username/app:latest
+    container_name: account-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - account-db
+    networks:
+      - banknet
+
+networks:
+  banknet:
